@@ -11,7 +11,6 @@ in
     ./../../modules/flatpak.nix
     ./../../modules/local-system
     ./../../modules/wireguard.nix
-    ./../../modules/local-system/desktop/gnome.nix
   ];
 
   boot = {
@@ -87,6 +86,10 @@ in
 
   nixpkgs.config.allowUnfree = true;
   time.hardwareClockInLocalTime = true;
+  services = {
+    desktopManager.cosmic.enable = true;
+    displayManager.cosmic-greeter.enable = true;
+  };
   system.stateVersion = "${config.nixosReleaseVersion}";
 }
 

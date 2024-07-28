@@ -28,6 +28,7 @@
       ''ACTION=="add", SUBSYSTEM=="net", NAME=="enp*", RUN+="${pkgs.ethtool}/sbin/ethtool -s $name wol d"''
     ];
 
+    power-profiles-daemon.enable = false; #disable this to allow tlp to work properly
     tlp = {
       enable = true;
       settings = {
@@ -79,6 +80,5 @@
     light.enable = true;
     nix-ld.enable = true; #Run unpatched dynamic binaries on NixOS., check : https://github.com/Mic92/nix-ld
   };
-  sound.enable = true;
 }
 
