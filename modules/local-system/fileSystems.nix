@@ -1,18 +1,18 @@
 {
   fileSystems = {
     "/" = {
-	device = "/dev/sda2";
+	device = "/dev/nvme0n1p6";
       fsType = "ext4";
       options = [ "noatime" ];
     };
 
     "/boot" = {
-      device = "/dev/sda1";
+      device = "/dev/nvme0n1p5";
       fsType = "vfat";
     };
 
     "/home" = {
-      device = "/dev/sda3";
+      device = "/dev/nvme0n1p6";
       fsType = "ext4";
     };
   };
