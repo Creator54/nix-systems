@@ -20,6 +20,7 @@ in
             Name=Flameshot
             Comment=Flameshot Screenshot Tool
           '';
+          ".config/autostart/disable-favorite-apps.desktop".force = true;
 	  # Create .desktop file for gromit-mpx to start on login
           ".config/autostart/gromit-mpx.desktop".text = ''
             [Desktop Entry]
@@ -31,8 +32,11 @@ in
             Name=Gromit MPX
             Comment=Gromit MPX highlight tool
           '';
-          ".kitty/kitty.conf".source                                      = ./kitty.conf;
+          ".config/autostart/gromit-mpx.desktop".force = true;
+          ".kitty/kitty.conf".source                                     = ./kitty.conf;
+          ".kitty/kitty.conf".force                                      = true;
           ".gromit-mpx.ini".source                                       = ./gromit-mpx.ini;
+          ".gromit-mpx.ini".force                                        = true;
         };
      };
     };

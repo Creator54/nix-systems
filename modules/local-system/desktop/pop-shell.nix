@@ -77,6 +77,8 @@ in
         Name=dconf Settings
         Comment=Apply dconf settings at login
       '';
+      ".config/autostart/dconf-settings.desktop".force = true;
+
       ".config/autostart/disable-favorite-apps.desktop".text = ''
         [Desktop Entry]
         Type=Application
@@ -87,6 +89,7 @@ in
         Name=Disable Favorite App Shortcuts
         Comment=Disable GNOME Shell favorite app shortcuts
       '';
+      ".config/autostart/disable-favorite-apps.desktop".force = true;
     };
 
     gtk = {
@@ -107,20 +110,20 @@ in
         package = pkgs.numix-cursor-theme;
       };
 
-      gtk3.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
+      #gtk3.extraConfig = {
+      #  Settings = ''
+      #    gtk-application-prefer-dark-theme=1
+      #  '';
+      #};
 
-      gtk4.extraConfig = {
-        Settings = ''
-          gtk-application-prefer-dark-theme=1
-        '';
-      };
+      #gtk4.extraConfig = {
+      #  Settings = ''
+      #    gtk-application-prefer-dark-theme=1
+      #  '';
+      #};
     };
 
-    home.sessionVariables.GTK_THEME = "default";
+    #home.sessionVariables.GTK_THEME = "default";
 
     dconf.settings = {
       #check extensions uuids via gnome-extensions list

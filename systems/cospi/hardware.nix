@@ -13,6 +13,7 @@
       availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
       kernelModules = [ "i915" ];
     };
+    kernelPackages = pkgs.linuxPackages_6_8;
     kernelModules = [ "kvm-intel" ];
     extraModulePackages = [ ];
     supportedFilesystems = [ "ntfs-3g" ];
@@ -23,6 +24,10 @@
       "options snd_hda_intel power_save=1"
       # enable wifi power saving (keep uapsd off to maintain low latencies)
       "options iwlwifi power_save=1 uapsd_disable=1"
+      #Audio issue:
+      # ref: https://github.com/NixOS/nixpkgs/issues/330685
+      # ref: https://discourse.nixos.org/t/microphone-not-working/49807/3
+      "options snd-hda-intel dmic_detect=0"
     ];
 
     # https://github.com/NixOS/nixpkgs/issues/18356
