@@ -10,7 +10,7 @@ let
   flameshot-gui-path = pkgs.writeShellScriptBin "flameshot-gui-path" "${pkgs.flameshot}/bin/flameshot gui -p /home/${user}/Screenshots/";
   flameshot-full = pkgs.writeShellScriptBin "flameshot-full" "${pkgs.flameshot}/bin/flameshot full -p /home/${user}/Screenshots/";
   local-scripts = pkgs.writeShellScriptBin "local-scripts" ''
-    selected_script=$(${pkgs.coreutils}/bin/ls /home/${user}/.local/bin | ${pkgs.wofi}/bin/wofi --dmenu)
+    selected_script=$(${pkgs.coreutils}/bin/ls /home/${user}/.local/bin | ${pkgs.dmenu}/bin/dmenu)
     if [ -n "$selected_script" ]; then
       bash -c /home/${user}/.local/bin/"$selected_script"
     else
